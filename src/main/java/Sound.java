@@ -15,11 +15,18 @@ public class Sound
    */
   public int limitAmplitude(int limit)
   {  
-    /* to be implemented in part (a) */
-    return 0;
+    int count=0; 
+    for(int i=0;i<samples.length;i++)
+      if(samples[i]>=limit){
+        samples[i]=limit; 
+        count++;
+      }
+      else if(samples[i]<=-limit){
+        samples[i]=-limit; 
+        count++;
+      }
+    return count; 
   }
-
-
 
   /** Removes all silence from the beginning of this sound.
    *  Silence is represented by a value of 0.
@@ -28,6 +35,16 @@ public class Sound
    */
   public void trimSilenceFromBeginning()
   {
-    /* to be implemented in part (b) */
+    int i=0; 
+    while(status==true){
+      if(samples[i]!=0)
+        status=false; 
+      else
+        i++;
+    }
+   int [] answer= new int[sample.length-i]
+     int x=0; 
+     for(int r=i;r<sample.length;r++)
+       answer[x]=sample[r];
   }
 }
